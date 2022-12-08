@@ -11,12 +11,12 @@ function showProduct(cart) {
     const tr = document.createElement('tr');
     totalPrice = totalPrice + price;
     tr.innerHTML = `
-            <th>${i + 1}</th>
-            <th>${name}</th>
-            <th>${price}</th>
-    `
+                <th>${i + 1}</th>
+                <th>${name}</th>
+                <th>${price}</th>
+                <th id="product-dlt"><button onClick='deletedProduct(this, ${i})'>Delete</button></th>
+        `
     productRow.appendChild(tr);
-
   }
   const tr = document.createElement('tr');
   tr.innerHTML = `
@@ -24,7 +24,20 @@ function showProduct(cart) {
             <th>${totalPrice}</th>
   `
   productRow.appendChild(tr);
-  console.log(totalPrice);
+}
+
+function deletedProduct(child, i) {
+  // const product = element.parentNode.parentNode.children[1].innerText;
+  // const price = element.parentNode.parentNode.children[2].innerText
+  const productRow = document.getElementById('product-row');
+  console.log(productRow.children[i], i)
+  productRow.children[i].remove();
+  // showProduct();
+  // productRow.parentNode.remove();
+
+  // const child = document.getElementById('child');
+  // child.parentElement.remove();
+
 }
 
 function shoppingCart(element) {
