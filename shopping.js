@@ -1,10 +1,10 @@
 const productInfo = [];
+console.log(productInfo);
 
 function showProduct(cart) {
   const productRow = document.getElementById('product-row');
   productRow.innerHTML = ``;
   let totalPrice = 0;
-
   for (i = 0; i < cart.length; i++) {
     const name = cart[i].productName;
     const price = cart[i].productPrice;
@@ -14,7 +14,7 @@ function showProduct(cart) {
                 <th>${i + 1}</th>
                 <th>${name}</th>
                 <th>${price}</th>
-                <th id="product-dlt"><button onClick='deletedProduct(this, ${i})'>Delete</button></th>
+                <th><button onClick='deletedProduct(this, ${i})'>Delete</button></th>
         `
     productRow.appendChild(tr);
   }
@@ -29,15 +29,17 @@ function showProduct(cart) {
 function deletedProduct(child, i) {
   // const product = element.parentNode.parentNode.children[1].innerText;
   // const price = element.parentNode.parentNode.children[2].innerText
-  const productRow = document.getElementById('product-row');
-  console.log(productRow.children[i], i)
-  productRow.children[i].remove();
+  // const productRow = document.getElementById('product-row');
+  // console.log(productRow.children[i], i)
+  // productRow.children[i].remove();
+  // shoppingCart();
   // showProduct();
   // productRow.parentNode.remove();
-
   // const child = document.getElementById('child');
   // child.parentElement.remove();
 
+  productInfo.splice(i);
+  showProduct(productInfo);
 }
 
 function shoppingCart(element) {
