@@ -1,5 +1,4 @@
 const productInfo = [];
-console.log(productInfo);
 
 function showProduct(cart) {
   const productRow = document.getElementById('product-row');
@@ -14,7 +13,7 @@ function showProduct(cart) {
                 <th>${i + 1}</th>
                 <th>${name}</th>
                 <th>${price}</th>
-                <th><button onClick='deletedProduct(this, ${i})'>Delete</button></th>
+                <th><button onClick='deletedProduct(this, ${i})' class='inline-block px-2 py-1 border-2 border-red-600 text-red-600 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out'>Delete</button></th>
         `
     productRow.appendChild(tr);
   }
@@ -38,7 +37,8 @@ function deletedProduct(child, i) {
   // const child = document.getElementById('child');
   // child.parentElement.remove();
 
-  productInfo.splice(i);
+  console.log(child.parentNode.parentNode.children[1].innerText,);
+  productInfo.splice(i, 1);
   showProduct(productInfo);
 }
 
